@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "name": "workersbd",
   "version": 2,
   "framework": "nextjs",
   "buildCommand": "npm run build",
@@ -11,11 +10,6 @@
     "NEXT_PUBLIC_SITE_URL": "https://workersbd.com",
     "NEXT_PUBLIC_SITE_NAME": "WorkersBD"
   },
-  "envSecrets": [
-    "CRON_SECRET",
-    "DATABASE_URL",
-    "NEXTAUTH_SECRET"
-  ],
   "headers": [
     {
       "source": "/robots.txt",
