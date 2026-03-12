@@ -1,0 +1,11 @@
+# robots.txt for WorkersBD
+User-agent: *
+Allow: /
+
+# Block internal API and admin routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+
+# Sitemap
+Sitemap: https://workersbd.com/sitemap.xml
