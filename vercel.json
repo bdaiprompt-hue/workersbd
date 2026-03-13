@@ -2,8 +2,8 @@
   "name": "workersbd",
   "version": 2,
   "framework": "nextjs",
-  "buildCommand": "npm run build",
-  "installCommand": "npm ci",
+  "buildCommand": "pnpm run build",
+  "installCommand": "pnpm install --frozen-lockfile",
   "outputDirectory": ".next",
   "regions": ["sin1"],
   "env": {
