@@ -15,7 +15,6 @@ export default function Document() {
         {/* Basic meta tags */}
         <meta charSet="utf-8" />
         <meta name="description" content={siteConfig.description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#0066cc" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English,Bengali" />
