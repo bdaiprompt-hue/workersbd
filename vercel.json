@@ -1,5 +1,4 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "name": "workersbd",
   "version": 2,
   "framework": "nextjs",
