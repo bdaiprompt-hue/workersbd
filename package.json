@@ -9,13 +9,12 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/generate-sitemap.js",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "sitemap": "node scripts/generate-sitemap.js",
     "analyze": "ANALYZE=true next build",
-    "postbuild": "npm run sitemap",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
