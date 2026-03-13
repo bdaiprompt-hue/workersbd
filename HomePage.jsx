@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { bangladeshDistricts, jobCategories, generateFAQSchema } from '../utils/seo';
+import { bangladeshDistricts, jobCategories, generateFAQSchema } from '../lib/seo';
 
 const HomePage = ({ stats, featuredJobs, topWorkers, testimonials, language = 'en' }) => {
   const [currentLang, setCurrentLang] = useState(language);
