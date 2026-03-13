@@ -13,7 +13,7 @@ const nextConfig = {
     localeDetection: true,
   },
 
-  // Image optimization
+  // Image optimization — use remotePatterns (replaces deprecated 'domains')
   images: {
     remotePatterns: [
       {
@@ -72,7 +72,7 @@ const nextConfig = {
     ];
   },
 
-  // Security headers
+  // Security + SEO headers
   async headers() {
     return [
       {
@@ -104,7 +104,6 @@ const nextConfig = {
           },
         ],
       },
-      // Cache static assets aggressively
       {
         source: '/static/:path*',
         headers: [
@@ -128,7 +127,6 @@ const nextConfig = {
 
   // Webpack customization
   webpack: (config, { isServer }) => {
-    // Bundle analyzer (only when ANALYZE=true)
     if (process.env.ANALYZE === 'true') {
       const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
       config.plugins.push(
