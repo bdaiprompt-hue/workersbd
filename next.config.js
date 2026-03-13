@@ -6,12 +6,7 @@ const nextConfig = {
   // Vercel-optimized output
   output: 'standalone',
 
-  // i18n bilingual support (EN + BN)
-  i18n: {
-    locales: ['en', 'bn'],
-    defaultLocale: 'en',
-    localeDetection: true,
-  },
+  // i18n bilingual support handled via react-intl and next-intl middleware
 
   // Image optimization — use remotePatterns (replaces deprecated 'domains')
   images: {
