@@ -15,7 +15,6 @@ export default function Document() {
         {/* Basic meta tags */}
         <meta charSet="utf-8" />
         <meta name="description" content={siteConfig.description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#0066cc" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English,Bengali" />
@@ -43,6 +42,13 @@ export default function Document() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+        {/* PWA Icons */}
+        <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
+
+        {/* Web App Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+
         {/* Canonical */}
         <link rel="canonical" href={siteConfig.url} />
 
@@ -59,9 +65,6 @@ export default function Document() {
         {/* Preconnect for better performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* Web app manifest for PWA */}
-        <link rel="manifest" href="/manifest.json" />
 
         {/* Organization Schema */}
         <script

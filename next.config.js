@@ -6,21 +6,31 @@ const nextConfig = {
   // Vercel-optimized output
   output: 'standalone',
 
-  // i18n bilingual support (EN + BN)
-  i18n: {
-    locales: ['en', 'bn'],
-    defaultLocale: 'en',
-    localeDetection: true,
-  },
+  // i18n bilingual support handled via react-intl and next-intl middleware
 
   // Image optimization — use remotePatterns (replaces deprecated 'domains')
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: 'workersbd.com' },
-      { protocol: 'https', hostname: 'cdn.workersbd.com' },
-      { protocol: 'https', hostname: 'images.workersbd.com' },
-      { protocol: 'https', hostname: 'res.cloudinary.com' },
-      { protocol: 'http', hostname: 'localhost' },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'workersbd.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.workersbd.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.workersbd.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
