@@ -13,14 +13,29 @@ const nextConfig = {
     localeDetection: true,
   },
 
-  // Image optimization
+  // Image optimization — use remotePatterns (replaces deprecated 'domains')
   images: {
-    domains: [
-      'localhost',
-      'workersbd.com',
-      'cdn.workersbd.com',
-      'images.workersbd.com',
-      'res.cloudinary.com',
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'workersbd.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.workersbd.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.workersbd.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -57,7 +72,7 @@ const nextConfig = {
     ];
   },
 
-  // Security headers
+  // Security + SEO headers
   async headers() {
     return [
       {
@@ -89,7 +104,6 @@ const nextConfig = {
           },
         ],
       },
-      // Cache static assets aggressively
       {
         source: '/static/:path*',
         headers: [
@@ -112,8 +126,7 @@ const nextConfig = {
   },
 
   // Webpack customization
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Bundle analyzer (only when ANALYZE=true)
+  webpack: (config, { isServer }) => {
     if (process.env.ANALYZE === 'true') {
       const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
       config.plugins.push(
