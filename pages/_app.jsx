@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Script from 'next/script';
 import '../styles/globals.css';
 import * as analytics from '../lib/analytics';
