@@ -1,65 +1,46 @@
 import Head from 'next/head';
 
-/**
- * SEOHead component - Reusable SEO meta tags component
- * Handles title, description, OG tags, Twitter cards, canonical URLs, and JSON-LD
- */
-export default function SEOHead({
-  title,
-  titlebn,
-  description,
-  descriptionbn,
-  canonical,
+export default function SEOHead({ 
+  title = 'WorkersBD - Find Jobs & Skilled Workers in Bangladesh',
+  description = 'Bangladesh\'s leading job portal. Find quality jobs and skilled workers in Dhaka, Chittagong, Sylhet, and across all districts.',
+  canonical = 'https://workersbd.com',
+  ogImage = 'https://workersbd.com/og-image.jpg',
   locale = 'en',
-  keywords = [],
-  structuredData,
-  ogImage = '/og-image-default.svg',
+  schemas = []
 }) {
-  const isbengali = locale === 'bn';
-  const displayTitle = isbengali && titlebn ? titlebn : title;
-  const displayDescription = isBengali && descriptionbn ? descriptionbn : description;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://workersbd.com';
-  const canonicalUrl = canonical || siteUrl;
-  const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
-
   return (
     <Head>
-      <title>{displayTitle}</title>
-      <meta name="description" content={displayDescription} />
-      {keywords.length > 0 && (
-        <meta name="keywords" content={keywords.join(', ')} />
-      )}
-      <link rel="canonical" href={canonicalUrl} />
-      <meta name="robots" content="index, follow" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={canonical} />
+      
       {/* Open Graph */}
-      <meta property="og:title" content={displayTitle} />
-      <meta property="og:description" content={displayDescription} />
-      <meta property="og:image" content={ogImageUrl} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:url" content={canonical} />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="WorkersBD" />
       <meta property="og:locale" content={locale === 'bn' ? 'bn_BD' : 'en_US'} />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={displayTitle} />
-      <meta name="twitter:description" content={displayDescription} />
-      <meta name="twitter:image" content={ogImageUrl} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
 
-      {/* Hreflang for bilingual support */}
-      <link rel="alternate" hrefLang="en" href={`${siteUrl}${canonicalUrl.replace(siteUrl, '')}`} />
-      <link rel="alternate" hrefLang="bn" href={`${siteUrl}/bn${canonicalUrl.replace(siteUrl, '')}`} />
-      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+      {/* Additional Meta Tags */}
+      <meta name="theme-color" content="#0066cc" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-      {/* JSON-LD Structured Data */}
-      {structuredData && (
+      {/* Structured Data */}
+      {schemas.map((schema, index) => (
         <script
+          key={index}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-      )}
+      ))}
     </Head>
   );
 }
