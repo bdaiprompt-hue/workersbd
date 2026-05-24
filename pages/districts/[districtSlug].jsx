@@ -1,4 +1,4 @@
-// pages/district/[districtSlug].jsx - Mobile-Optimized District Page
+// pages/districts/[districtSlug].jsx - Mobile-Optimized District Page
 import { useState, useEffect } from 'react';
 import SEOHead from '../../components/SEOHead';
 import dynamic from 'next/dynamic';
@@ -551,7 +551,7 @@ const styles = {
 };
 
 // Server-side props with ISR for performance
-export async function getStaticProps({ params, locale }) {
+export async function getStaticProps({ params }) {
   const { districtSlug } = params;
   
   // Fetch district data
@@ -570,19 +570,16 @@ export async function getStaticProps({ params, locale }) {
     props: {
       district,
       jobs,
-      locale: locale || 'en'
+      locale: 'en'
     },
     revalidate: 3600 // Revalidate every hour
   };
 }
 
 export async function getStaticPaths() {
-  const paths = bangladeshDistricts.flatMap(district =>
-    ['en', 'bn'].map(locale => ({
-      params: { districtSlug: district.name.toLowerCase() },
-      locale
-    }))
-  );
+  const paths = bangladeshDistricts.map(district => ({
+    params: { districtSlug: district.name.toLowerCase() }
+  }));
 
   return {
     paths,

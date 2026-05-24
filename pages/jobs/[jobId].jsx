@@ -609,7 +609,7 @@ const styles = {
 };
 
 // Server-side rendering
-export async function getServerSideProps({ params, locale }) {
+export async function getServerSideProps({ params }) {
   const { jobId } = params;
   
   // Fetch job data (replace with actual API call)
@@ -626,7 +626,7 @@ export async function getServerSideProps({ params, locale }) {
     props: {
       job,
       relatedJobs,
-      locale: locale || 'en'
+      locale: 'en'
     }
   };
 }
