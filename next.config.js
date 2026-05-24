@@ -8,6 +8,12 @@ const nextConfig = {
 
   // i18n bilingual support handled via react-intl and next-intl middleware
 
+  // i18n configuration for bilingual support (English and Bengali)
+  i18n: {
+    locales: ['en', 'bn'],
+    defaultLocale: 'en',
+  },
+
   // Image optimization — use remotePatterns (replaces deprecated 'domains')
   images: {
     remotePatterns: [
