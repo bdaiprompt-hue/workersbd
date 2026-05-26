@@ -120,13 +120,12 @@ export default function Document() {
 
         {/* Noscript fallback for analytics */}
         <noscript>
-          <img
-            height="1"
-            width="1"
+          <div
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=YOUR_FB_PIXEL_ID&ev=PageView&noscript=1"
-            alt="fb-pixel"
-          />
+          >
+            {/* Facebook pixel placeholder - replace with actual pixel ID */}
+            fb-pixel
+          </div>
         </noscript>
       </body>
     </Html>
