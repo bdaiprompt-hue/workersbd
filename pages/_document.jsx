@@ -14,6 +14,7 @@ export default function Document() {
 
         {/* Basic meta tags */}
         <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="description" content={siteConfig.description} />
         <meta name="theme-color" content="#0066cc" />
         <meta name="robots" content="index, follow" />
@@ -119,13 +120,12 @@ export default function Document() {
 
         {/* Noscript fallback for analytics */}
         <noscript>
-          <img
-            height="1"
-            width="1"
+          <div
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=YOUR_FB_PIXEL_ID&ev=PageView&noscript=1"
-            alt="fb-pixel"
-          />
+          >
+            {/* Facebook pixel placeholder - replace with actual pixel ID */}
+            fb-pixel
+          </div>
         </noscript>
       </body>
     </Html>
