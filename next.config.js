@@ -7,12 +7,7 @@ const nextConfig = {
   output: 'standalone',
 
   // i18n bilingual support handled via react-intl and next-intl middleware
-
-  // i18n configuration for bilingual support (English and Bengali)
-  i18n: {
-    locales: ['en', 'bn'],
-    defaultLocale: 'en',
-  },
+  // (Removed Pages Router i18n config as it conflicts with App Router patterns)
 
   // Image optimization — use remotePatterns (replaces deprecated 'domains')
   images: {
