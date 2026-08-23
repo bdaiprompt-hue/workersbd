@@ -7,11 +7,13 @@ export default function JobPage({ job, relatedJobs, locale }) {
   const [isApplying, setIsApplying] = useState(false);
   const isBangla = locale === 'bn';
 
+  // SEO Configuration
   const pageTitle = `${job.title} at ${job.company} - ${job.location}`;
   const pageTitleBn = `${job.titlebn || job.title} - ${job.companybn || job.company} - ${job.locationbn || job.location}`;
-  const pageDescription = `Apply for ${job.title} position at ${job.company} in ${job.location}. Salary: ${job.salary}. Employment Type: ${job.employmentType}. Required: ${job.skills.join(', ')}`;
-  const pageDescriptionBn = `${job.company} এ ${job.title} পদের জন্য আবেদন করুন। বেতন: ${job.salary}।`;
+  const pageDescription = `Apply for ${job.title} position at ${job.company} in ${job.location}. Salary: ${job.salary}. ${job.employmentType}. Required: ${job.skills.join(', ')}`;
+  const pageDescriptionBn = `${job.company} তে ${job.title} পদের জন্য আবেদন করুন। বেতন: ${job.salary}। প্রয়োজনীয় দক্ষতা: ${job.skills.join(', ')}`;
 
+  // Structured Data
   const jobSchema = generateJobPostingSchema(job);
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://workersbd.com' },
@@ -121,7 +123,7 @@ export default function JobPage({ job, relatedJobs, locale }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1rem' }}>
               {relatedJobs.slice(0, 3).map(rj => (
                 <a key={rj.id} href={`/jobs/${rj.id}`}
-                  style={{ background: 'white', borderRadius: '10px', padding: '1.25rem', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', border: '1px solid #eee', textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                  style={{ background: 'white', borderRadius: '10px', padding: '1.25rem', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', border: '1px solid #eee', textDecoration: 'none', color: 'inherit', transition: 'transform 0.2s' }}>
                   <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.25rem', color: '#1a1a1a' }}>{rj.title}</h3>
                   <p style={{ fontSize: '0.875rem', color: '#666', margin: 0 }}>{rj.company} • {rj.location}</p>
                   <p style={{ fontSize: '0.875rem', color: '#0066cc', marginTop: '0.5rem' }}>{rj.salary}</p>
